@@ -1,0 +1,36 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eachEmployee of Employeelist" appHoverHighlight>
+        <td>{{eachEmployee.employee_ID}}</td>
+        <td *ngIf="toggleEmployeeId!=eachEmployee.employee_ID"> {{eachEmployee.first_Name}}</td>
+        <td *ngIf="toggleEmployeeId==eachEmployee.employee_ID"> <input type="text" [(ngModel)]="eachEmployee.first_Name"></td>
+        <td *ngIf="toggleEmployeeId!=eachEmployee.employee_ID"> {{eachEmployee.last_Name}}</td>
+        <td *ngIf="toggleEmployeeId==eachEmployee.employee_ID"> <input type="text" [(ngModel)]="eachEmployee.last_Name"></td>
+        <td *ngIf="toggleEmployeeId!=eachEmployee.employee_ID"> {{eachEmployee.salary | currency}}</td>
+        <td *ngIf="toggleEmployeeId==eachEmployee.employee_ID"> <input type="text" [(ngModel)]="eachEmployee.salary"></td>
+        <td *ngIf="toggleEmployeeId!=eachEmployee.employee_ID"> {{eachEmployee.DOB | date:'shortDate'}}</td>
+        <td *ngIf="toggleEmployeeId==eachEmployee.employee_ID"> <input type="text" [(ngModel)]="eachEmployee.DOB"></td>
+        <td *ngIf="toggleEmployeeId!=eachEmployee.employee_ID"> {{eachEmployee.email}}</td>
+        <td *ngIf="toggleEmployeeId==eachEmployee.employee_ID"> <input type="text" [(ngModel)]="eachEmployee.email"></td>
+        <td *ngIf="toggleEmployeeId!=eachEmployee.employee_ID">
+          <button type="button" class="btn btn-primary" (click)="editEmployee(eachEmployee)">Edit</button>
+        </td>
+        <td *ngIf="toggleEmployeeId==eachEmployee.employee_ID">
+          <button type="button" class="btn btn-warning" (click)="updateEmployee(eachEmployee)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
