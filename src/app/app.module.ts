@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { BindingDemoComponent } from './binding-demo/binding-demo.component';
 import { FormsModule } from '@angular/forms';
 import { HoverHighlightDirective } from './custom-directive/hover-highlight.directive';
+import { NewEmployeeComponent } from './new-employee/new-employee.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { HoverHighlightDirective } from './custom-directive/hover-highlight.dire
     FooterComponent,
     HomeComponent,
     BindingDemoComponent,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    NewEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

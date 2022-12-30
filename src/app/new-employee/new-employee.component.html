@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="container">
+    <h2 class="text-center font-weight-bold">Employee Details from API</h2>
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Salary</th>
+          <th scope="col">age</th>
+          <th scope="col">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let eachEmployee of Employeelist" appHoverHighlight>
+          <td>{{eachEmployee.id}}</td>
+          <td *ngIf="toggleEmployeeId!=eachEmployee.id"> {{eachEmployee.employee_name}}</td>
+          <td *ngIf="toggleEmployeeId==eachEmployee.id"> <input type="text" [(ngModel)]="eachEmployee.employee_name"></td>
+          
+          <td *ngIf="toggleEmployeeId!=eachEmployee.id"> {{eachEmployee.employee_salary | currency}}</td>
+          <td *ngIf="toggleEmployeeId==eachEmployee.id"> <input type="text" [(ngModel)]="eachEmployee.employee_salary"></td>
+          <td *ngIf="toggleEmployeeId!=eachEmployee.id"> {{eachEmployee.employee_age}}</td>
+          <td *ngIf="toggleEmployeeId==eachEmployee.id"> <input type="text" [(ngModel)]="eachEmployee.employee_age"></td>
+          <td *ngIf="toggleEmployeeId!=eachEmployee.id"> <img src={{eachEmployee.profile_image}}/></td>
+          <td *ngIf="toggleEmployeeId==eachEmployee.id"> <input type="text" [(ngModel)]="eachEmployee.profile_image"></td>
+          <!-- <td *ngIf="toggleEmployeeId!=eachEmployee.id">
+            <button type="button" class="btn btn-primary" (click)="editEmployee(eachEmployee)">Edit</button>
+          </td>
+          <td *ngIf="toggleEmployeeId==eachEmployee.id">
+            <button type="button" class="btn btn-warning" (click)="updateEmployee(eachEmployee)">Update</button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-success">{{status}}</p>
+  </div>
